@@ -57,8 +57,8 @@ def find_adjacent( puzzle ): # 取得依權重排序過後的所有邊
     return all_edge
 
 def MST( all_edge ):  # 最小生成樹(使用Kruskal's algorithm)
-    direction = ["R&L","U&D"] 
-    direction_reverse = ["L&R","D&U"]
+    #direction = ["R&L","U&D"] 
+    #direction_reverse = ["L&R","D&U"]
     Mst = {i:[] for i in range(9*16)} # 建立連接圖
     dsj = DSJ(9*16)  # 建立併查集
     for edge in all_edge: # edge = (node1 ,node2, direction, weight)
