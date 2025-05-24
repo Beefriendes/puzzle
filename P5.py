@@ -35,7 +35,7 @@ def get_weight(node1, node2, direction): # 取的兩節點權重
         edge1 = node1[0, :, :]  
         edge2 = node2[-1, :, :] 
     else:
-        print(456)
+        pass
 
     edge1 = edge1.astype(np.float32) # uint8轉為float32(防止underflow)
     edge2 = edge2.astype(np.float32)
@@ -72,7 +72,6 @@ def MST( all_edge ):  # 最小生成樹(使用Kruskal's algorithm)
             else:
                 print(1)
             '''
-
     print(Mst)
     return Mst
 
@@ -92,11 +91,8 @@ def traverse_MST( Mst, puzzle, pixel_size ):
             if neighbor in visited:
                 continue
             visited.add(neighbor)
-            #print(move[direction])
             new_x = x + move[direction][0]
             new_y = y + move[direction][1]
-            #if (new_x, new_y) == (1,-3):
-            #    print( current , neighbor, direction, new_x, new_y )
             puzzle_position[neighbor] = (new_x, new_y)
             queue.append((neighbor, new_x, new_y))
 
@@ -128,8 +124,8 @@ if __name__ == '__main__':
 
     all_edge = find_adjacent(puzzle) 
     print(len(all_edge))
-    #Mst = MST(all_edge)
-    #traverse_MST( Mst, puzzle, pixel_size )
+    Mst = MST(all_edge)
+    traverse_MST( Mst, puzzle, pixel_size )
 
 
 
